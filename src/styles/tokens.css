@@ -1,0 +1,90 @@
+/* ═══ NEURAL PROTOCOL — Design Tokens ══════════════════════ */
+:root {
+  --bg-base:    #020409;
+  --bg-surface: #060d1a;
+  --bg-glass:   rgba(255,255,255,.04);
+  --bg-glass2:  rgba(255,255,255,.07);
+  --bg-glass3:  rgba(255,255,255,.11);
+  --orb-cyan:   rgba(6,182,212,.18);
+  --orb-violet: rgba(139,92,246,.15);
+  --orb-green:  rgba(52,211,153,.12);
+  --orb-rose:   rgba(244,63,94,.09);
+  --cyan:    #22d3ee;
+  --cyan2:   #06b6d4;
+  --violet:  #a78bfa;
+  --violet2: #7c3aed;
+  --green:   #34d399;
+  --rose:    #fb7185;
+  --amber:   #fbbf24;
+  --t1: #f1f5f9;
+  --t2: #94a3b8;
+  --t3: #475569;
+  --border:   rgba(255,255,255,.08);
+  --border2:  rgba(255,255,255,.14);
+  --border-c: rgba(34,211,238,.25);
+  --border-v: rgba(167,139,250,.25);
+  --glow-c: 0 0 24px rgba(34,211,238,.35), 0 0 80px rgba(34,211,238,.1);
+  --glow-v: 0 0 24px rgba(167,139,250,.35),0 0 80px rgba(167,139,250,.1);
+  --glow-g: 0 0 24px rgba(52,211,153,.35), 0 0 80px rgba(52,211,153,.1);
+  --glow-r: 0 0 24px rgba(251,113,133,.4), 0 0 80px rgba(251,113,133,.12);
+  --shadow:    0 4px 24px rgba(0,0,0,.6),  0 1px 0 rgba(255,255,255,.04);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,.8);
+  --shadow-xl: 0 24px 80px rgba(0,0,0,.9);
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+  --hh: 56px;
+  --nb: 58px;
+  --r:  8px;
+  --r2: 12px;
+  --r3: 18px;
+  --ease: cubic-bezier(.16,1,.3,1);
+
+  /* Semantic text — safe in both themes */
+  --text-primary:   #f1f5f9;
+  --text-secondary: rgba(255,255,255,.6);
+  --text-muted:     rgba(255,255,255,.4);
+  --text-faint:     rgba(255,255,255,.25);
+  --card-bg:        rgba(255,255,255,.04);
+  --card-bg2:       rgba(4,8,18,.95);
+}
+
+/* ── LIGHT MODE — properly readable ────────────────────────── */
+[data-theme="light"] {
+  /* Soft blue-white, not blinding */
+  --bg-base:    #f4f7ff;
+  --bg-surface: #eaeffc;
+  --bg-glass:   rgba(255,255,255,.75);
+  --bg-glass2:  rgba(255,255,255,.90);
+  --bg-glass3:  rgba(255,255,255,.97);
+
+  /* Subtle orbs */
+  --orb-cyan:   rgba(6,182,212,.07);
+  --orb-violet: rgba(139,92,246,.06);
+  --orb-green:  rgba(52,211,153,.05);
+  --orb-rose:   rgba(244,63,94,.04);
+
+  /* Darker signal colors for light bg contrast */
+  --cyan:    #0284c7;
+  --cyan2:   #0369a1;
+  --violet:  #6d28d9;
+  --violet2: #5b21b6;
+  --green:   #047857;
+  --rose:    #be123c;
+  --amber:   #b45309;
+
+  /* HIGH CONTRAST text — this was the main problem */
+  --t1: #0f172a;   /* near-black — main text */
+  --t2: #1e3a5f;   /* dark blue-grey — secondary */
+  --t3: #475569;   /* medium — muted */
+
+  /* Borders visible on white */
+  --border:   rgba(15,23,42,.10);
+  --border2:  rgba(15,23,42,.18);
+  --border-c: rgba(2,132,199,.35);
+  --border-v: rgba(109,40,217,.30);
+
+  --shadow:    0 2px 16px rgba(15,23,42,.10), 0 1px 0 rgba(255,255,255,.9);
+  --shadow-lg: 0 8px 40px rgba(15,23,42,.15);
+  --shadow-xl: 0 20px 60px rgba(15,23,42,.18);
+}
