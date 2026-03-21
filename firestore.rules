@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Subscriptions
+    match /subscriptions/{userId} {
+      allow read:  if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Community chat — allow bot writes (uid = 'neural-bot-v1')
+    match /chatRooms/{roomId}/messages/{msgId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && (
+          // Real user message
+          request.resource.data.uid == request.auth.uid
+          // OR bot message (any authenticated user can write bot messages)
+          || request.resource.data.uid == 'neural-bot-v1'
+        )
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 2000;
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
+    }
+
+    // User progress
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Leaderboard — public read, auth write
+    match /leaderboard/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Access keys
+    match /accessKeys/{keyId} {
+      allow read:   if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null && resource.data.used == false;
+      allow delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
